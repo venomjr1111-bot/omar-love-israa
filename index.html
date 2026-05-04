@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Omar ❤️ Israa</title>
+<style>
+body {
+    text-align: center;
+    font-family: Arial;
+    background: linear-gradient(to top, #ffdde1, #ee9ca7);
+    overflow: hidden;
+}
+button {
+    padding: 15px 25px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.hearts {
+    position: absolute;
+    color: red;
+    font-size: 24px;
+    animation: float 5s linear infinite;
+}
+@keyframes float {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-800px);}
+}
+</style>
+</head>
+
+<body>
+
+<h2 id="text">اضغطي هنا ❤️</h2>
+<button onclick="nextStep()">ابدأي</button>
+
+<script>
+let step = 0;
+
+function nextStep() {
+    step++;
+
+    if (step === 1) {
+        text.innerText = "تعرفي مين اكتر حد بيحبك؟";
+    } else if (step === 2) {
+        text.innerText = "طيب تعرفي انتي عيون مين؟";
+    } else if (step === 3) {
+        text.innerText = "طيب تعرفي انتي عقل مين؟";
+    } else if (step === 4) {
+        text.innerText = "هقولك دلوقتي... انتي قلب عمر من جوا ❤️";
+        createHearts();
+    } else if (step === 5) {
+        text.innerText = "انا بحبك وبخاف عليكي ومبحبش حد قدك ❤️\nمش عاوزك تزعلي مني في يوم\nلكن انتي اغلى ما عندي 💖";
+    }
+}
+
+function createHearts() {
+    setInterval(() => {
+        let heart = document.createElement("div");
+        heart.className = "hearts";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.innerText = "❤️";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
+    }, 300);
+}
+</script>
+
+</body>
+</html>
